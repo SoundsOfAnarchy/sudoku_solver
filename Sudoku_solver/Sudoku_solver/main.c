@@ -4,7 +4,11 @@
 
 int main(char* argv[], int argc) {
 
-	struct sudoku_board* sb = create_sudoku_board(argv, argc);
+	if (argc != 10) {
+		return 0;
+	}
+	
+	struct sudoku_board* sb = create_sudoku_board(argv + 1, 9);
 	struct matr_of_possible_values* possible_values = create_matr_of_possible_values(sb);
 	fill_matr_of_possible_values(possible_values, sb);
 
@@ -26,14 +30,15 @@ int main(char* argv[], int argc) {
 		dots = number_of_dots(possible_values);
 	}
 
-	remove_sudoku_board(sb);
-	remove_matr_of_possible_values(possible_values);
-
 	for (int i = 0; i < sb->size; ++i) {
 		for (int j = 0; j < sb->size; ++j) {
 			printf("%d ", sb->matr_sudoku_board[i][j]);
 		}
 		printf("\n");
 	}
+	
+	remove_sudoku_board(sb);
+	remove_matr_of_possible_values(possible_values);
+	
 	return 0;
 }
