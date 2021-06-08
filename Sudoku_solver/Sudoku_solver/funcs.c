@@ -31,7 +31,7 @@ void remove_sudoku_board(sudoku_board* sudoku_board) {
 		free(sudoku_board->matr_sudoku_board[i]);
 	}
 	free(sudoku_board->matr_sudoku_board);
-	free(sudoku_board);
+	//free(sudoku_board);
 }
 
 matr_of_possible_values* create_matr_of_possible_values(const sudoku_board* sudoku_board) {
@@ -100,7 +100,7 @@ void remove_matr_of_possible_values(matr_of_possible_values* matr) {
 		free(matr->matr_of_possible_values[i]);
 	}
 	free(matr->matr_of_possible_values);
-	free(matr);
+	//free(matr);
 }
 
 int can_be_solved(matr_of_possible_values* matr, int number) {
