@@ -3,17 +3,8 @@
 #include <stdio.h>
 
 int main(char* argv[], int argc) {
-	char* lines[] = { "1..489..6\0",
-						"73..5..4.\0",
-						"46...1295\0",
-						"38712.6..\0",
-						"5.17.3..8\0",
-						".46.9571.\0",
-						"9146...8.\0",
-						".2..4..37\0",
-						"8.3512..4\0" };
 
-	struct sudoku_board* sb = create_sudoku_board(lines, 9);
+	struct sudoku_board* sb = create_sudoku_board(argv, argc);
 	struct matr_of_possible_values* possible_values = create_matr_of_possible_values(sb);
 	fill_matr_of_possible_values(possible_values, sb);
 
